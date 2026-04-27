@@ -1,0 +1,25 @@
+{
+  "name": "jeetmantra-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for JeetMantra platform with PostgreSQL backend",
+  "main": "server.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "pg": "^8.11.0",
+    "dotenv": "^16.3.0",
+    "express": "^4.18.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.16.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "vite": "^8.0.10"
+  }
+}
