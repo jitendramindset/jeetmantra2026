@@ -16,30 +16,30 @@ function StudentDashboard({ user, data }) {
   const renderOverview = () => (
     <>
       <div className="grid grid-4" style={{ marginBottom: '2rem' }}>
-        <div className="card">
-          <h3>Attendance</h3>
-          <p className="metric">{Math.round((completedClasses / totalClasses) * 100) || 87}%</p>
-          <p>Attendance this month</p>
+        <div className="card" style={{ textAlign: 'center', paddingTop: '1.75rem', paddingBottom: '1.75rem' }}>
+          <p style={{ margin: '0.25rem 0', fontSize: '0.85rem', fontWeight: 600, color: '#999', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Attendance</p>
+          <p className="metric" style={{ margin: '0.75rem 0' }}>{Math.round((completedClasses / totalClasses) * 100) || 87}%</p>
+          <p style={{ margin: '0', fontSize: '0.9rem', color: '#999' }}>This month</p>
         </div>
-        <div className="card">
-          <h3>Classes Done</h3>
-          <p className="metric">{completedClasses}/{totalClasses}</p>
-          <p>Completed classes</p>
+        <div className="card" style={{ textAlign: 'center', paddingTop: '1.75rem', paddingBottom: '1.75rem' }}>
+          <p style={{ margin: '0.25rem 0', fontSize: '0.85rem', fontWeight: 600, color: '#999', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Classes</p>
+          <p className="metric" style={{ margin: '0.75rem 0' }}>{completedClasses}/{totalClasses}</p>
+          <p style={{ margin: '0', fontSize: '0.9rem', color: '#999' }}>Done</p>
         </div>
-        <div className="card">
-          <h3>Wallet Balance</h3>
-          <p className="metric">₹{walletBalance.toLocaleString()}</p>
-          <p>Ready to withdraw</p>
+        <div className="card" style={{ textAlign: 'center', paddingTop: '1.75rem', paddingBottom: '1.75rem' }}>
+          <p style={{ margin: '0.25rem 0', fontSize: '0.85rem', fontWeight: 600, color: '#999', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Wallet</p>
+          <p className="metric" style={{ margin: '0.75rem 0' }}>₹{walletBalance.toLocaleString()}</p>
+          <p style={{ margin: '0', fontSize: '0.9rem', color: '#999' }}>Ready</p>
         </div>
-        <div className="card">
-          <h3>Skills Learned</h3>
-          <p className="metric">{skillsLearned}</p>
-          <p>New skills this week</p>
+        <div className="card" style={{ textAlign: 'center', paddingTop: '1.75rem', paddingBottom: '1.75rem' }}>
+          <p style={{ margin: '0.25rem 0', fontSize: '0.85rem', fontWeight: 600, color: '#999', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Skills</p>
+          <p className="metric" style={{ margin: '0.75rem 0' }}>{skillsLearned}</p>
+          <p style={{ margin: '0', fontSize: '0.9rem', color: '#999' }}>Learned</p>
         </div>
       </div>
 
       <div className="card" style={{ marginBottom: '2rem' }}>
-        <h3>Quick Actions</h3>
+        <h3 style={{ marginBottom: '1.25rem' }}>Quick Actions</h3>
         <div className="grid grid-actions">
           {['Live Lecture', 'Recorded', 'Take Test', 'Do Quiz', 'See Books', 'Homework', 'Book Class'].map((action) => (
             <button key={action} className="action-pill">{action}</button>
@@ -49,29 +49,35 @@ function StudentDashboard({ user, data }) {
 
       <div className="grid grid-2" style={{ gap: '1.5rem' }}>
         <div className="card">
-          <h3>Upcoming Classes</h3>
+          <h3 style={{ marginBottom: '1rem' }}>Upcoming Classes</h3>
           {courses.length > 0 ? (
-            <ul>
+            <div style={{ display: 'grid', gap: '0.75rem' }}>
               {courses.slice(0, 3).map((item, index) => (
-                <li key={index} style={{ marginBottom: '0.75rem' }}>
-                  <strong>{item.title}</strong><br />
-                  {item.lesson_title || 'Next lesson coming soon'}<br />
-                  <span className="text-muted">{item.scheduled_date ? new Date(item.scheduled_date).toLocaleDateString() : 'Date TBD'}</span>
-                </li>
+                <div key={index} style={{ padding: '0.75rem', borderLeft: '3px solid #f97316', backgroundColor: '#fafafa' }}>
+                  <p style={{ margin: '0', fontWeight: 600, color: '#1a1a1a', fontSize: '0.95rem' }}>{item.title}</p>
+                  <p style={{ margin: '0.25rem 0 0 0', color: '#666', fontSize: '0.9rem' }}>{item.lesson_title || 'Next lesson'}</p>
+                  <p style={{ margin: '0.25rem 0 0 0', color: '#999', fontSize: '0.85rem' }}>{item.scheduled_date ? new Date(item.scheduled_date).toLocaleDateString() : 'Date TBD'}</p>
+                </div>
               ))}
-            </ul>
+            </div>
           ) : (
             <p>No upcoming classes scheduled.</p>
           )}
         </div>
 
         <div className="card">
-          <h3>Homework & Notes</h3>
-          <ul>
-            <li>Complete exercise set 1 for Algebra.</li>
-            <li>Review science experiment notes.</li>
-            <li>Submit essay on English literature.</li>
-          </ul>
+          <h3 style={{ marginBottom: '1rem' }}>Homework</h3>
+          <div style={{ display: 'grid', gap: '0.75rem' }}>
+            <div style={{ padding: '0.75rem', backgroundColor: '#fafafa', borderRadius: '6px' }}>
+              <p style={{ margin: '0', color: '#1a1a1a', fontSize: '0.95rem' }}>• Complete exercise set 1 for Algebra</p>
+            </div>
+            <div style={{ padding: '0.75rem', backgroundColor: '#fafafa', borderRadius: '6px' }}>
+              <p style={{ margin: '0', color: '#1a1a1a', fontSize: '0.95rem' }}>• Review science experiment notes</p>
+            </div>
+            <div style={{ padding: '0.75rem', backgroundColor: '#fafafa', borderRadius: '6px' }}>
+              <p style={{ margin: '0', color: '#1a1a1a', fontSize: '0.95rem' }}>• Submit essay on English literature</p>
+            </div>
+          </div>
         </div>
       </div>
     </>
@@ -150,17 +156,14 @@ function StudentDashboard({ user, data }) {
   );
 
   return (
-    <section className="section">
+    <section className="section" style={{ paddingBottom: '3rem' }}>
       <div className="container">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-          <div>
-            <h2 className="page-title">Good morning, {user.name.split(' ')[0]} 👋</h2>
-            <p className="section-text">Track your learning progress, attendance, wallet, and profile updates.</p>
-          </div>
-          <button className="btn-primary">Switch Role</button>
+        <div style={{ marginBottom: '2rem' }}>
+          <h2 style={{ fontSize: '1.8rem', margin: '0 0 0.5rem 0', color: '#1a1a1a' }}>Good morning, {user.name.split(' ')[0]} 👋</h2>
+          <p style={{ margin: '0', color: '#666', fontSize: '0.95rem' }}>Monday, April 28, 2025</p>
         </div>
 
-        <div className="tabs" style={{ marginBottom: '2rem' }}>
+        <div className="tabs" style={{ marginBottom: '2rem', borderBottom: '2px solid #f0f0f0', paddingBottom: '1rem' }}>
           {['Overview', 'Attendance', 'Wallet', 'Profile'].map((tab) => (
             <button
               key={tab}

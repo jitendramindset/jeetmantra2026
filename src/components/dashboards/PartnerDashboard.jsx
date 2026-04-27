@@ -13,42 +13,39 @@ function PartnerDashboard({ user, data }) {
   const renderOverview = () => (
     <>
       <div className="grid grid-4" style={{ marginBottom: '2rem' }}>
-        <div className="card">
-          <h3>Bookings Today</h3>
-          <p className="metric">4</p>
-          <p>Pending this week</p>
+        <div className="card" style={{ textAlign: 'center', paddingTop: '1.75rem', paddingBottom: '1.75rem' }}>
+          <p style={{ margin: '0.25rem 0', fontSize: '0.85rem', fontWeight: 600, color: '#999', textTransform: 'uppercase' }}>Bookings Today</p>
+          <p className="metric" style={{ margin: '0.75rem 0' }}>4</p>
+          <p style={{ margin: '0', fontSize: '0.9rem', color: '#999' }}>Scheduled</p>
         </div>
-        <div className="card">
-          <h3>Active Students</h3>
-          <p className="metric">182</p>
-          <p>This month</p>
+        <div className="card" style={{ textAlign: 'center', paddingTop: '1.75rem', paddingBottom: '1.75rem' }}>
+          <p style={{ margin: '0.25rem 0', fontSize: '0.85rem', fontWeight: 600, color: '#999', textTransform: 'uppercase' }}>Active Students</p>
+          <p className="metric" style={{ margin: '0.75rem 0' }}>182</p>
+          <p style={{ margin: '0', fontSize: '0.9rem', color: '#999' }}>This month</p>
         </div>
-        <div className="card">
-          <h3>Monthly Revenue</h3>
-          <p className="metric">₹36,400</p>
-          <p>April 2025</p>
+        <div className="card" style={{ textAlign: 'center', paddingTop: '1.75rem', paddingBottom: '1.75rem' }}>
+          <p style={{ margin: '0.25rem 0', fontSize: '0.85rem', fontWeight: 600, color: '#999', textTransform: 'uppercase' }}>Revenue</p>
+          <p className="metric" style={{ margin: '0.75rem 0' }}>₹36,400</p>
+          <p style={{ margin: '0', fontSize: '0.9rem', color: '#999' }}>April 2025</p>
         </div>
-        <div className="card">
-          <h3>Avg. Rating</h3>
-          <p className="metric">4.8★</p>
-          <p>Based on reviews</p>
+        <div className="card" style={{ textAlign: 'center', paddingTop: '1.75rem', paddingBottom: '1.75rem' }}>
+          <p style={{ margin: '0.25rem 0', fontSize: '0.85rem', fontWeight: 600, color: '#999', textTransform: 'uppercase' }}>Rating</p>
+          <p className="metric" style={{ margin: '0.75rem 0' }}>4.8★</p>
+          <p style={{ margin: '0', fontSize: '0.9rem', color: '#999' }}>Excellent</p>
         </div>
       </div>
 
       <div className="card">
-        <h3>Today's Bookings</h3>
-        <div className="data-list">
+        <h3 style={{ marginBottom: '1.5rem' }}>Today's Bookings</h3>
+        <div style={{ display: 'grid', gap: '0.75rem' }}>
           {bookings.map((booking, index) => (
-            <div key={index} className="list-item">
+            <div key={index} style={{ display: 'grid', gridTemplateColumns: '1fr auto auto', gap: '1rem', padding: '1rem', backgroundColor: '#fafafa', borderRadius: '8px', alignItems: 'center' }}>
               <div>
-                <strong>{booking.student}</strong>
-                <p>{booking.service}</p>
+                <p style={{ margin: '0', fontWeight: 600, color: '#1a1a1a', fontSize: '0.95rem' }}>{booking.student}</p>
+                <p style={{ margin: '0.25rem 0 0 0', color: '#666', fontSize: '0.9rem' }}>{booking.service}</p>
               </div>
-              <div>
-                <span className={`status-badge ${booking.status}`}>{booking.status}</span>
-                <p>{booking.time}</p>
-              </div>
-              <button className="btn-primary">Mark Attendance</button>
+              <span className={`status-badge ${booking.status}`}>{booking.status}</span>
+              <button className="btn-primary" style={{ padding: '0.65rem 1rem', fontSize: '0.9rem' }}>Mark Done</button>
             </div>
           ))}
         </div>

@@ -39,9 +39,23 @@ img {
 
 .card {
   background: white;
-  border-radius: 18px;
-  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.08);
-  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  border: 1px solid #f0f0f0;
+}
+
+.card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.95rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.card p {
+  margin: 0.25rem 0;
+  color: #666;
+  font-size: 0.9rem;
 }
 
 .btn-primary {
@@ -51,14 +65,17 @@ img {
   background: #f97316;
   color: white;
   border: none;
-  border-radius: 999px;
-  padding: 0.95rem 1.8rem;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .btn-primary:hover {
-  transform: translateY(-1px);
+  background: #ea580c;
+  transform: translateY(-2px);
 }
 
 .grid {
@@ -93,11 +110,13 @@ img {
 .tab-button {
   border: 1px solid #e5e7eb;
   background: white;
-  border-radius: 999px;
-  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  padding: 0.65rem 1.25rem;
   cursor: pointer;
-  color: #374151;
+  color: #666;
   transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 
 .tab-button.active {
@@ -109,21 +128,26 @@ img {
 .action-pill {
   background: #f4f6f8;
   border: 1px solid #e5e7eb;
-  border-radius: 999px;
-  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
   cursor: pointer;
-  color: #111827;
+  color: #666;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .action-pill:hover {
   background: #fff7ed;
+  border-color: #f97316;
 }
 
 .metric {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  margin: 0.75rem 0;
+  margin: 0.5rem 0;
+  color: #f97316;
 }
+
 
 .status-badge {
   display: inline-flex;

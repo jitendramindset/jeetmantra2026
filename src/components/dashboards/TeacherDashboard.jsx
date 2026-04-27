@@ -14,38 +14,38 @@ function TeacherDashboard({ user, data }) {
   const renderOverview = () => (
     <>
       <div className="grid grid-4" style={{ marginBottom: '2rem' }}>
-        <div className="card">
-          <h3>Total Students</h3>
-          <p className="metric">{totalStudents || 340}</p>
-          <p>Across active courses</p>
+        <div className="card" style={{ textAlign: 'center', paddingTop: '1.75rem', paddingBottom: '1.75rem' }}>
+          <p style={{ margin: '0.25rem 0', fontSize: '0.85rem', fontWeight: 600, color: '#999', textTransform: 'uppercase' }}>Total Students</p>
+          <p className="metric" style={{ margin: '0.75rem 0' }}>{totalStudents || 340}</p>
+          <p style={{ margin: '0', fontSize: '0.9rem', color: '#999' }}>Active enrolments</p>
         </div>
-        <div className="card">
-          <h3>Avg Attendance</h3>
-          <p className="metric">86%</p>
-          <p>This month</p>
+        <div className="card" style={{ textAlign: 'center', paddingTop: '1.75rem', paddingBottom: '1.75rem' }}>
+          <p style={{ margin: '0.25rem 0', fontSize: '0.85rem', fontWeight: 600, color: '#999', textTransform: 'uppercase' }}>Avg Attendance</p>
+          <p className="metric" style={{ margin: '0.75rem 0' }}>86%</p>
+          <p style={{ margin: '0', fontSize: '0.9rem', color: '#999' }}>This month</p>
         </div>
-        <div className="card">
-          <h3>Monthly Earnings</h3>
-          <p className="metric">₹{totalEarnings.toLocaleString() || '28,400'}</p>
-          <p>Estimated payout</p>
+        <div className="card" style={{ textAlign: 'center', paddingTop: '1.75rem', paddingBottom: '1.75rem' }}>
+          <p style={{ margin: '0.25rem 0', fontSize: '0.85rem', fontWeight: 600, color: '#999', textTransform: 'uppercase' }}>Earnings</p>
+          <p className="metric" style={{ margin: '0.75rem 0' }}>₹{totalEarnings.toLocaleString() || '28,400'}</p>
+          <p style={{ margin: '0', fontSize: '0.9rem', color: '#999' }}>Payout due</p>
         </div>
-        <div className="card">
-          <h3>Active Courses</h3>
-          <p className="metric">{classes.length || 4}</p>
-          <p>Live sessions this week</p>
+        <div className="card" style={{ textAlign: 'center', paddingTop: '1.75rem', paddingBottom: '1.75rem' }}>
+          <p style={{ margin: '0.25rem 0', fontSize: '0.85rem', fontWeight: 600, color: '#999', textTransform: 'uppercase' }}>Active Courses</p>
+          <p className="metric" style={{ margin: '0.75rem 0' }}>{classes.length || 4}</p>
+          <p style={{ margin: '0', fontSize: '0.9rem', color: '#999' }}>Running now</p>
         </div>
       </div>
 
       <div className="card" style={{ marginBottom: '2rem' }}>
-        <h3>Today's Schedule</h3>
+        <h3 style={{ marginBottom: '1.5rem' }}>Today's Schedule</h3>
         <div className="grid grid-3" style={{ gap: '1rem' }}>
           {todaySchedule.length > 0 ? todaySchedule.map((item, index) => (
-            <div key={index} className="card card-small">
-              <strong>{item.title}</strong>
-              <p>{item.enrolled_students || 42} students</p>
-              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '1rem' }}>
-                <button className="btn-primary">Take Attendance</button>
-                <button className="btn-secondary">Go Live</button>
+            <div key={index} className="card" style={{ backgroundColor: '#f9f9f9', paddingTop: '1.25rem', paddingBottom: '1.25rem' }}>
+              <p style={{ margin: '0 0 0.5rem 0', fontWeight: 600, color: '#1a1a1a', fontSize: '0.95rem' }}>{item.title}</p>
+              <p style={{ margin: '0.25rem 0', color: '#666', fontSize: '0.9rem' }}>📍 Batch A • 7:00 AM</p>
+              <p style={{ margin: '0.5rem 0 1rem 0', color: '#666', fontSize: '0.9rem' }}>{item.enrolled_students || 42} students registered</p>
+              <div style={{ display: 'flex', gap: '0.5rem', gap: '0.75rem' }}>
+                <button className="btn-primary" style={{ flex: 1, padding: '0.65rem 0.75rem', fontSize: '0.9rem' }}>Mark Attendance</button>
               </div>
             </div>
           )) : (
@@ -154,17 +154,14 @@ function TeacherDashboard({ user, data }) {
   );
 
   return (
-    <section className="section">
+    <section className="section" style={{ paddingBottom: '3rem' }}>
       <div className="container">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-          <div>
-            <h2 className="page-title">Good morning, Mr. {user.name.split(' ')[1] || user.name.split(' ')[0]}</h2>
-            <p className="section-text">Manage your teacher dashboard, classes, attendance, and live sessions.</p>
-          </div>
-          <button className="btn-primary">Switch Role</button>
+        <div style={{ marginBottom: '2rem' }}>
+          <h2 style={{ fontSize: '1.8rem', margin: '0 0 0.5rem 0', color: '#1a1a1a' }}>Good morning, Mr. {user.name.split(' ')[1] || user.name.split(' ')[0]}</h2>
+          <p style={{ margin: '0', color: '#666', fontSize: '0.95rem' }}>Monday, April 28, 2025</p>
         </div>
 
-        <div className="tabs" style={{ marginBottom: '2rem' }}>
+        <div className="tabs" style={{ marginBottom: '2rem', borderBottom: '2px solid #f0f0f0', paddingBottom: '1rem' }}>
           {['Overview', 'My Classes', 'Take Attendance', 'Live Class', 'Create Course'].map((tab) => (
             <button
               key={tab}
