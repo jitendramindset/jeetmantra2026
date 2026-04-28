@@ -7,16 +7,21 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "node server.js"
+    "start": "node mcp-webhook-server.js",
+    "start-sqlite": "node server-sqlite.js",
+    "seed": "node seed-sqlite.js",
+    "setup": "npm install && npm run seed && npm run start"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.5.0",
-    "pg": "^8.11.0",
+    "better-sqlite3": "^12.9.0",
     "dotenv": "^16.3.0",
     "express": "^4.18.0",
+    "pg": "^8.11.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.16.0"
+    "react-router-dom": "^6.16.0",
+    "sqlite3": "^6.0.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.0.1",
